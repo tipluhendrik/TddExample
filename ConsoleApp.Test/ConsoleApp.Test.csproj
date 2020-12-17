@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Extensions.ConsoleApp\Extensions.ConsoleApp.csproj" />
+    <ProjectReference Include="..\ConsoleApp\ConsoleApp.csproj" />
   </ItemGroup>
 
 </Project>

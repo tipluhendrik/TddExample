@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions", "Extensions\Extensions.csproj", "{6A374D47-308A-4319-ACC2-FDEE3D3FBD6A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp.Test", "ConsoleApp.Test\ConsoleApp.Test.csproj", "{6A374D47-308A-4319-ACC2-FDEE3D3FBD6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions.ConsoleApp", "Extensions.ConsoleApp\Extensions.ConsoleApp.csproj", "{B5D50B3E-FDEA-4B81-8D3C-C5441E43575E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{B5D50B3E-FDEA-4B81-8D3C-C5441E43575E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

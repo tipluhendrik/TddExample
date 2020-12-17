@@ -1,6 +1,5 @@
 [
     {
-        "Name": "Node_0",
         "Priority": "High"
     },
     {
@@ -10,11 +9,17 @@
     {
         "Name": "Node_2",
         "Cost": 200,
-        "Currency": "Usd"
+        "Currency": "EUR"
     },
     {
         "Name": "Node_3",
         "Cost": -3000,
-        "Currency": "Usd"
+        "Currency": "USD"
+    },
+    
+    {
+        "Name": "Node_3",
+        "Cost": 220,
+        "Currency": "GBP"
     }
 ]
