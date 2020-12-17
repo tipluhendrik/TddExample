@@ -13,10 +13,32 @@ namespace Extensions
             values["Name"] = node.Name;
             if (node.Cost.HasValue)
             {
-                values["Cost"] = node.Cost.Value.ToString();
+                values["Cost"] = BuildCostString(node);
             }
+            values["Priority"] = node.Priority.ToString();
 
             return new NodeView(values);
+        }
+        private string BuildCostString(Node node)
+        {
+            var symbol = "";
+            
+            if(node.Currency == Currency.Eur)
+            {
+                symbol = "€";
+            }
+
+            if(node.Currency == Currency.Usd)
+            {
+                symbol = "$";
+            }   
+
+            if(node.Currency == Currency.Gbp)
+            {
+                symbol = "£";
+            }
+
+            return $"{node.Cost} {symbol}";
         }
     }
 }

@@ -5,7 +5,8 @@
     },    
     {
         "Id": 1,
-        "Name": "Node_1"
+        "Name": "Node_1",
+        "Cost": 20
     },    
     {
         "Id": 2,

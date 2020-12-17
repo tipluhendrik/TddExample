@@ -1,7 +1,7 @@
 Als Nutzer möchte ich an einzelnen Nodes Kosten hinzufügen können.
-Wenn eine Node Kosten hat, sollen diese auch ausgegeben werden.
-Die Kosten einer Node sind eine positive Ganzzahl.
-Standardmäsig hat eine Node keine Kosten.
+Wenn eine Node Kosten hat, werden diese ausgegeben.
+Wenn kein Wert angegeben ist wird das Feld nicht ausgegeben
+Die Kosten einer Node sind eine Ganzzahl.
 
 Datenbank:
 {
@@ -16,7 +16,7 @@ Ausgabe:
    "Values": {
     "Name": "Node_0",
     "Id": "0",
-    "Cost": 20
+    "Cost": "20"
   }
 }
 Datenbank:
@@ -49,7 +49,7 @@ Datenbank:
      {
         "Id": 0,
         "Name": "Node_0"
-        "Priority": High
+        "Priority": "High"
     },  
 }
 Ausgabe:
@@ -57,7 +57,7 @@ Ausgabe:
    "Values": {
     "Name": "Node_0",
     "Id": "0",
-    "Priority": High
+    "Priority": "High"
   }
 }
 
@@ -73,6 +73,27 @@ Ausgabe:
    "Values": {
     "Name": "Node_0",
     "Id": "0",
-    "Priority": Mid
+    "Priority": "Mid"
+  }
+}
+
+_______________________________________________________________
+Anforderung:
+Wenn eine Node Kosten hat, sollen die Kosten mit dem Eurosymbol ausgegeben werden.
+
+Datenbank:
+{
+     {
+        "Id": 0,
+        "Name": "Node_0"
+        "Cost": 20
+    },  
+}
+Ausgabe:
+{
+   "Values": {
+    "Name": "Node_0",
+    "Id": "0",
+    "Cost": "20 €"
   }
 }

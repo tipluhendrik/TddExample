@@ -9,5 +9,6 @@ namespace Extensions
         public string Name { get; set; } = "";
         public int? Cost { get; set; }
         public Priority Priority { get; set; }
+        public Currency Currency { get; set; }
     }
 }
