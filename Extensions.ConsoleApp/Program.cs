@@ -9,15 +9,30 @@ namespace Extensions.ConsoleApp
     {
         static void Main(string[] args)
         {
-            var fileString = File.ReadAllText("Database.json");
-            var nodes = JsonSerializer.Deserialize<IEnumerable<Node>>(fileString);
+            var nodes = ReadDatabase();
 
             var nodeController = new NodeController();
-            foreach(var node in nodes)
-                {
-                    System.Console.WriteLine("Node:");
-                    nodeController.ToNodeView(node).Dump();
-                }
+
+            var currencies = new[] { Currency.EUR, Currency.GBP, Currency.USD };
+            foreach (var currency in currencies)
+            {
+                System.Console.WriteLine(currency.ToString());
+                nodeController.GetBilanz(nodes, currency).Dump();
+            }
+
+
+            foreach (var node in nodes)
+            {
+                System.Console.WriteLine("Node:");
+                nodeController.ToNodeView(node).Dump();
+            }
+        }
+
+        private static IEnumerable<Node> ReadDatabase()
+        {
+            var fileString = File.ReadAllText("Database.json");
+            var nodes = JsonSerializer.Deserialize<IEnumerable<Node>>(fileString);
+            return nodes;
         }
     }
     public static class ObejctDumper

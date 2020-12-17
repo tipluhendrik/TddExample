@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,37 +9,43 @@ namespace Extensions
         public NodeView ToNodeView(Node node)
         {
             var values = new Dictionary<string, string>();
-            
-            values["Id"] = node.Id.ToString();
+
             values["Name"] = node.Name;
-            if (node.Cost.HasValue)
+            if (node.Cost.HasValue && node.Cost.Value >= 0)
             {
-                values["Cost"] = BuildCostString(node);
+                values["Cost"] = BuildCostString(node.Cost.Value, node.Currency);
+            }
+            if (node.Cost.HasValue && node.Cost < 0)
+            {
+                values["Cost"] = BuildCostString(0, node.Currency);
+                values["Income"] = BuildCostString(-node.Cost.Value, node.Currency);
+
             }
             values["Priority"] = node.Priority.ToString();
 
             return new NodeView(values);
         }
-        private string BuildCostString(Node node)
+
+        internal object GetBilanz(IEnumerable<Node> nodes, object eur)
         {
-            var symbol = "";
+            throw new NotImplementedException();
+        }
+
+        private string BuildCostString(int cost, Currency currency)
+        {
+            return $"{cost} {currency.ToString()}";
+        }
+
+        public Bilanz GetBilanz(IEnumerable<Node> nodeList, Currency currency)
+        {
+            var costs = nodeList.Where(node => node.Cost.HasValue && node.Currency == currency).Select(node => node.Cost.Value);
             
-            if(node.Currency == Currency.Eur)
-            {
-                symbol = "€";
-            }
+            var income = costs.Where(cost => cost < 0).Sum(cost => -cost);
+            var expenseSum = costs.Where(cost => cost > 0).Sum();
+    	    var total = income - expenseSum;
 
-            if(node.Currency == Currency.Usd)
-            {
-                symbol = "$";
-            }   
+            return new Bilanz{Expenses = expenseSum, Total = total, Income = income};
 
-            if(node.Currency == Currency.Gbp)
-            {
-                symbol = "£";
-            }
-
-            return $"{node.Cost} {symbol}";
         }
     }
 }

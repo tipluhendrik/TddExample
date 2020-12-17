@@ -1,15 +1,20 @@
 [
     {
-        "Id": 0,
-        "Name": "Node_0"
-    },    
+        "Name": "Node_0",
+        "Priority": "High"
+    },
     {
-        "Id": 1,
         "Name": "Node_1",
-        "Cost": 20
-    },    
+        "Cost": 10
+    },
     {
-        "Id": 2,
-        "Name": "Node_2"
+        "Name": "Node_2",
+        "Cost": 200,
+        "Currency": "Usd"
+    },
+    {
+        "Name": "Node_3",
+        "Cost": -3000,
+        "Currency": "Usd"
     }
 ]
