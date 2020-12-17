@@ -10,7 +10,7 @@ namespace Extensions
         {
             var node = new Node();
 
-            Assert.False(node.Kosten.HasValue);
+            Assert.False(node.Cost.HasValue);
         }
         [Fact]
         public void Test_New_Node_Has_Mid_Priority()

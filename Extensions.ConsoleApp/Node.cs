@@ -7,7 +7,7 @@ namespace Extensions
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int? Kosten { get; set; }
+        public int? Cost { get; set; }
         public Priority Priority { get; set; }
     }
 }

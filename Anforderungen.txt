@@ -1,0 +1,78 @@
+Als Nutzer möchte ich an einzelnen Nodes Kosten hinzufügen können.
+Wenn eine Node Kosten hat, sollen diese auch ausgegeben werden.
+Die Kosten einer Node sind eine positive Ganzzahl.
+Standardmäsig hat eine Node keine Kosten.
+
+Datenbank:
+{
+     {
+        "Id": 0,
+        "Name": "Node_0"
+        "Cost": 20
+    },  
+}
+Ausgabe:
+{
+   "Values": {
+    "Name": "Node_0",
+    "Id": "0",
+    "Cost": 20
+  }
+}
+Datenbank:
+{
+     {
+        "Id": 0,
+        "Name": "Node_0"
+    },  
+}
+Ausgabe:
+{
+   "Values": {
+    "Name": "Node_0",
+    "Id": "0"
+  }
+}
+
+
+
+
+_______________________________________________________________
+
+Als Nutzer möchte ich einzelnen Nodes eine bestimmte Priorität geben können.
+Es gibt die Stufen Niedrig, Mittel und Hoch.
+Standardmäsig hat eine Node Mittlere Priorität
+Eine Node muss immer eine Priorität haben
+
+Datenbank:
+{
+     {
+        "Id": 0,
+        "Name": "Node_0"
+        "Priority": High
+    },  
+}
+Ausgabe:
+{
+   "Values": {
+    "Name": "Node_0",
+    "Id": "0",
+    "Priority": High
+  }
+}
+
+Datenbank:
+{
+     {
+        "Id": 0,
+        "Name": "Node_0"
+    },  
+}
+Ausgabe:
+{
+   "Values": {
+    "Name": "Node_0",
+    "Id": "0",
+    "Priority": Mid
+  }
+}
