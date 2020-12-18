@@ -15,7 +15,7 @@ namespace ConsoleApp.Test
             var nodeController = new NodeController();
             var values = nodeController.GetValues(node);
 
-            Assert.Equal("", values["Name"]);
+            Assert.Equal(name, values["Name"]);
         }
     }
 }
