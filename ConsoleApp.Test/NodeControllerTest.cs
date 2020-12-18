@@ -7,7 +7,7 @@ namespace ConsoleApp.Test
     public class NodeControllerTest
     {
         [Fact]
-        public void Test_GetValues_With_Name()
+        public void GetValues_Contains_Node_Name()
         {
             var name = "A new Name";
             var node = new Node { Name = name };

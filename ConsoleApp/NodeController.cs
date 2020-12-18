@@ -10,7 +10,7 @@ namespace ConsoleApp
         {
             var values = new Dictionary<string, string>();
             values["Name"] = node.Name;
-
+            
             return values;
         }
     }
