@@ -22,5 +22,5 @@ jobs:
     - name: Build
       run: dotnet build --no-restore    
     - name: Test
-      run: dotnet test --no-restore --no-build --logger GitHubActions
+      run: dotnet test --no-restore --no-build 
 
