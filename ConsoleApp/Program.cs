@@ -14,7 +14,7 @@ namespace ConsoleApp
             var nodes = ReadDatabase();
 
             var nodeController = new NodeController();
-            var values = nodes.Select(nodeController.GetValues);
+            var values = nodes.Select(nodeController.GetNode);
 
             foreach (var value in values)
             {
