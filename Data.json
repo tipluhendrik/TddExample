@@ -3,6 +3,10 @@
         "Priority": "High"
     },
     {
+        "Name": null,
+        "Priority": "High"
+    },
+    {
         "Name": "Node_1",
         "Cost": 10
     },

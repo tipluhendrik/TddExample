@@ -6,16 +6,32 @@ namespace ConsoleApp.Test
 {
     public class NodeControllerTest
     {
-        [Fact]
-        public void GetValues_Contains_Node_Name()
-        {
-            var name = "A new Name";
-            var node = new Node { Name = name };
+        private readonly NodeController _nodeController;
 
-            var nodeController = new NodeController();
-            var values = nodeController.GetValues(node);
+        public NodeControllerTest()
+        {
+            _nodeController = new NodeController();
+        }
+        [Theory]
+        [InlineData("A new Name")]
+        [InlineData("")]
+        public void GetValues_Contains_Node_Name(string name)
+        {
+            var node = new Node { Name = name };
+          
+            var values = _nodeController.GetValues(node);
 
             Assert.Equal(name, values["Name"]);
+        }
+
+        [Fact]
+        public void GetValues_New_Node_No_Name_Output_Unknown()
+        {
+            var node = new Node();
+          
+            var values = _nodeController.GetValues(node);
+
+            Assert.Equal("Unknown", values["Name"]);
         }
     }
 }
