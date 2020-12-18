@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace ConsoleApp
 {
@@ -17,23 +18,27 @@ namespace ConsoleApp
 
             foreach (var value in values)
             {
-                Dump(value);
+                value.Dump();
             }
         }
 
         private static IEnumerable<Node> ReadDatabase()
         {
             var fileString = File.ReadAllText("Data.json");
-            var nodes = JsonSerializer.Deserialize<IEnumerable<Node>>(fileString);
+
+            JsonSerializerOptions options = new JsonSerializerOptions();
+            options.Converters.Add(new JsonStringEnumConverter());
+            var nodes = JsonSerializer.Deserialize<IEnumerable<Node>>(fileString, options);
+
             return nodes;
         }
-        
-        private static void Dump(IDictionary<string, string> value)
-        {
-            System.Console.WriteLine("Node:");
-            var serializerOptions = new JsonSerializerOptions { WriteIndented = true };
-            var json = JsonSerializer.Serialize(value, serializerOptions);
-            Console.WriteLine(json);
-        }
     }
+        public static class DumpExtension
+        {
+            public static void Dump<T>(this T value)
+            {
+                var json = JsonSerializer.Serialize(value);
+                Console.WriteLine(json);
+            }
+        }
 }
